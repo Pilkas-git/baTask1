@@ -12,9 +12,8 @@ class FileReader {
 	BufferedReader bufferedReader;
     List<String> FindComments(String filePath)
     {
-        String line;
         List<String> Comments = new ArrayList<>();
-        String code = "";
+        String code = "", line;
         try {
             bufferedReader = new BufferedReader(new java.io.FileReader(new File(filePath)));
             while ((line = bufferedReader.readLine()) != null)
