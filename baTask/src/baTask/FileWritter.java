@@ -34,7 +34,6 @@ public class FileWritter
                 counter++;
                 bufferedWriter.newLine();
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
