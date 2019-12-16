@@ -14,6 +14,7 @@ class FileReader {
     {
         List<String> Comments = new ArrayList<>();
         String code = "", line;
+        
         try {
             bufferedReader = new BufferedReader(new java.io.FileReader(new File(filePath)));
             while ((line = bufferedReader.readLine()) != null)
@@ -23,11 +24,12 @@ class FileReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
         Matcher matcher = Pattern.compile("//.*|(\"(?:\\\\[^\"]|\\\\\"|.)*?\")|(?s)/\\*.*?\\*/").matcher(code);
         while (matcher.find())
         {
             String comment = matcher.group();
-            if(comment.startsWith("\"") && comment.endsWith("\"") || comment.startsWith("///")) {
+            if(comment.startsWith("\"") && comment.endsWith("\"")) {
             	continue;
             }
             //Removes string which contained simillarity to comments, which was created when the user wanted to comment a specific comment
